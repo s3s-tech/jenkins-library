@@ -9,9 +9,10 @@ node("${config.slave}") {
 //{
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    //git '${config.git_url}'
+stage ("SCM-Checkout")
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
 
-   
+   stage ("Build&Publish")
    def server = Artifactory.server("${config.artifactoryServer}")
    def rtMaven = Artifactory.newMavenBuild()
    rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
