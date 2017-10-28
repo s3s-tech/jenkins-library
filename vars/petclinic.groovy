@@ -10,7 +10,7 @@ def call(body) {
 node {
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    //git '${config.git_url}'
-   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: '${config.git_url}']]])
+   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
 
    
    def server = Artifactory.server('${config.artifactory_server}')
