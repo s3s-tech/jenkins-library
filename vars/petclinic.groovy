@@ -9,7 +9,9 @@ def call(body) {
 //node('${slave.slave}') {
 node {
    //git 'https://github.com/spring-projects/spring-petclinic.git'
-   git '${config.git_url}'
+   //git '${config.git_url}'
+   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: '${config.git_url}']]])
+
    
    def server = Artifactory.server('${config.artifactory_server}')
    def rtMaven = Artifactory.newMavenBuild()
