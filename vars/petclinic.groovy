@@ -4,7 +4,7 @@ def call(body) {
     body.delegate = config
     body()
 
-node('${config.slave_name}') {
+node() {
    git 'https://github.com/spring-projects/spring-petclinic.git'
    
    def server = Artifactory.server('${config.artifactory_server}')
