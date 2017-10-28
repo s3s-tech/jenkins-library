@@ -3,7 +3,7 @@ def call(body) {
     //def slave = ${config.slave}
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
-    def slave = ${config.slave}
+    def $slave = ${config.slave}
     body()
 
 node(${slave}) {
