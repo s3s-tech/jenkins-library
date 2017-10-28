@@ -18,5 +18,7 @@ rtMaven.tool = "${config.maven_name}"
 def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install sonar:sonar'
 server.publishBuildInfo buildInfo
 
+
+}
     
 }
