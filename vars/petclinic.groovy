@@ -24,3 +24,4 @@ server.publishBuildInfo buildInfo
 
 
 }
+}
