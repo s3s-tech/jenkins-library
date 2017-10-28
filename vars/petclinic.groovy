@@ -5,8 +5,8 @@ def call(body) {
         body.delegate = config
         body()
 
-//node('${slave.slave}') {
-{
+node("${config.slave}") {
+//{
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    //git '${config.git_url}'
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
