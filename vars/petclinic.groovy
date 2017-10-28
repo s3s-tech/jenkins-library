@@ -7,7 +7,8 @@ def call(body) {
     body()
 
 //node('${slave.slave}') {
-node('$slave') {
+//node() {
+{
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    git '${config.git_url}'
    
