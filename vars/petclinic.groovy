@@ -8,7 +8,6 @@ def call(body) {
 
 //node('${slave.slave}') {
 node "${config.slave}" {
-{
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    git '${config.git_url}'
    
@@ -24,6 +23,4 @@ def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install sonar:sonar'
 server.publishBuildInfo buildInfo
 
 
-}
-    
 }
