@@ -6,7 +6,7 @@ def call(body) {
         body()
 
 //node('${slave.slave}') {
-node {
+{
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    //git '${config.git_url}'
    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]])
@@ -24,5 +24,4 @@ def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install sonar:sonar'
 server.publishBuildInfo buildInfo
 
 
-}
 }
