@@ -1,9 +1,10 @@
 def call(body) {
-
-        def config = [:]
-        body.resolveStrategy = Closure.DELEGATE_FIRST
-        body.delegate = config
-        body()
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    //def slave = [:]
+    //body.delegate = slave
+    body()
 
 //node('${slave.slave}') {
 node {
