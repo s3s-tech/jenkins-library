@@ -1,13 +1,13 @@
 def call(body) {
     def config = [:]
-    //def slave = ${config.slave}
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
-    def slave = [:]
-    body.delegate = slave
+    //def slave = [:]
+    //body.delegate = slave
     body()
 
-node('${slave.slave}') {
+//node('${slave.slave}') {
+node('$slave') {
    //git 'https://github.com/spring-projects/spring-petclinic.git'
    git '${config.git_url}'
    
