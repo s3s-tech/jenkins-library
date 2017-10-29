@@ -11,7 +11,7 @@ def call(body) {
 
             try {
                 stage ('Clone') {
-                    checkout scm
+                 //   checkout scm
                 }
                 stage ('Build') {
                     bat "echo 'building ${config.projectName} ...'"
